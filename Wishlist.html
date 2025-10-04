@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineta - Multipurpose eCommerce - Home</title>
+    <link rel="icon" href="assets/icons/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8f4a58',
+                        secondary: '#ba9272',
+                        accent: '#ff6f61',
+                        light: '#e5e5e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles */
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-actions {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .category-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        /* Loading optimization */
+        img {
+            loading: lazy;
+        }
+        
+        /* Animation improvements */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Dropdown menu improvements */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        /* Mobile menu styles */
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 50;
+            }
+            
+            .nav-menu.active {
+                display: block;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #e5e5e5;
+            }
+            
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-['Ubuntu'] bg-gray-50">
+    <!-- top-bar -->
+    <div class="top-bar bg-primary h-9 w-full">
+        <div class="container mx-auto flex justify-between items-center h-full px-4">
+            <div class="top-bar-left">
+                <ul class="flex gap-3">
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-facebook-f text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-instagram text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-twitter text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-snapchat text-white text-xs"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-bar-middle hidden md:flex items-center gap-5 text-white text-xs">
+                <div>
+                    <p>Free Shipping on Orders $50+</p>
+                </div>
+                <div>
+                    <p>30-Day Money Back Guarantee</p>
+                </div>
+            </div>
+            <div class="top-bar-right flex items-center gap-5 text-white text-xs">
+                <a href="#" class="flex items-center">
+                    English <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </a>
+                <a href="#" class="flex items-center">
+                    USD $ <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- top-bar -->
+    
+    <!-- header -->
+    <header class="bg-white border-b border-light">
+        <div class="container mx-auto py-5 px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center justify-between w-full md:w-auto">
+                    <div class="mb-4 md:mb-0">
+                        <a href="index.html" class="logo-header">
+
+
+<img src="assste/icons/logo.svg" alt="Vineta Logo" class="h-8">
+                        </a>
+                    </div>
+                    <button class="mobile-menu-btn md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                <div class="w-full md:w-1/3 my-4 md:my-0">
+                    <div class="header-search relative">
+                        <form class="flex">
+                            <input type="search" placeholder="Search for products" 
+                                class="search-input w-full py-2 px-4 border border-light rounded-l-full focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button type="submit" class="bg-primary text-white rounded-r-full px-4 hover:bg-primary/90 transition">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5">
+                    <a href="login.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="far fa-user text-xl"></i>
+                        <span class="hidden md:block ml-2">Login</span>
+                    </a>
+                    <a href="Wishlist.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fa-solid fa-heart"></i>
+                        <span class="hidden md:block ml-2">Wishlist</span>
+                    </a>
+                    <a href="cart.html" class="flex items-center text-gray-700 hover:text-primary">
+<i class="fa-solid fa-cart-shopping"></i>
+                        <span class="hidden md:block ml-2">Cart</span>
+                    </a>
+<a href="woman.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fas fa-female text-xl"></i>
+                        <span class="hidden md:block ml-2">Woman</span>
+                    </a>   
+                    
+                    <a href="singlcart.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="hidden md:block ml-2">singlcart</span>
+                    </a>
+                    <a href="check.html" class="flex items-center text-gray-700 hover:text-primary">
+<i class="fa-solid fa-circle-check"></i>                  
+      <span class="hidden md:block ml-2">Check</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <!-- navbar -->
+    <nav class="bg-white border-b border-light relative">
+        <div class="container mx-auto px-4">
+            <ul class="nav-menu hidden md:flex flex-wrap justify-center py-4 gap-6 text-sm font-medium">
+                <li class="relative dropdown">
+                    <a href="index.html" class="flex items-center hover:text-primary">
+                        Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="#" class="block py-2 hover:text-primary">Home Furniture</a>
+                        <a href="#" class="block py-2 hover:text-primary">Home Decor</a>
+                        <a href="#" class="block py-2 hover:text-primary">Home Lighting</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <a href="#" class="flex items-center hover:text-primary">
+                        Shop <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="# class="block py-2 hover:text-primary">Living Room</a>
+                        <a href="#" class="block py-2 hover:text-primary">Bedroom</a>
+                        <a href="#" class="block py-2 hover:text-primary">Kitchen</a>
+                        <a href="#"class="block py-2 hover:text-primary">Outdoor</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <a href="#" class="flex items-center hover:text-primary">
+                        Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="#" class="block py-2 hover:text-primary">New Arrivals</a>
+                        <a href="#" class="block py-2 hover:text-primary">Best Sellers</a>
+                        <a href="#" class="block py-2 hover:text-primary">Sale</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <a href="# " class="flex items-center hover:text-primary">
+                        Pages <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="#" class="block py-2 hover:text-primary">About Us</a>
+                        <a href="#" class="block py-2 hover:text-primary">Contact</a>
+                        <a href="#" class="block py-2 hover:text-primary">FAQ</a>
+                    </div>
+                </li>
+                <li class="relative dropdown">
+                    <a href="#" class="flex items-center hover:text-primary">
+                        Blog <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="#" class="block py-2 hover:text-primary">Blog List</a>
+                        <a href="#" class="block py-2 hover:text-primary">Blog Single</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="text-primary font-bold">Buy Theme!</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar -->
+
+    <!-- Main content would go here -->
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-menu') && !event.target.closest('.mobile-menu-btn')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+            
+            // Improved dropdown functionality
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function() {
+                    const menu = this.querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.classList.remove('hidden');
+                    }
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    const menu = this.querySelector('.dropdown-menu');
+                    if (menu) {
+                        menu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    <!-- banner -->
+    <section>
+        <div class=" mt-[2em] mb-[2em] h-[30vh] bg-[#FFDAB9]">
+            <div>
+                <h1 class="font-bold text-4xl text-center pt-[2em]  ">
+                    My wishlist
+                </h1>
+            </div>
+            <div>
+                <ul class="flex justify-center gap-8 pt-[1em]  ">
+                    <a href="index.html">
+                        <li class="list-disc text-[#666666]">Home</li>
+                    </a>
+
+                    <li class="font-bold">wishlist</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- banner -->
+    <section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6  ">
+            <!-- Product Card -->
+
+            <div
+                class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+                <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                        class="w-full object-cover rounded-[20px]  " />
+
+                    <!-- Icons on Hover -->
+                    <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                        <i class="fa-solid fa-xmark fa-2xl"></i>
+                    </div>
+                    <div
+                        class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                        <ul class="flex gap-4  ">
+                            <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black ">
+                                <i class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                            <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                    class="fa-solid fa-eye fa-xl "></i></i></li>
+                            <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                    class="fa-solid fa-repeat fa-xl "></i></li>
+                        </ul>
+                </a>
+            </div>
+
+            <!-- Product Info -->
+            <div class=" p-4">
+                <p class="text-sm text-gray-500 line-through">$150.00</p>
+                <p class="text-lg font-semibold text-red-500">$129.00</p>
+                <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+                <ul class="flex gap-2 pt-[1em]">
+                    <a href="" class="hover:border-1 rounded-full">
+                        <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                    </a>
+                    <a href="" class="hover:border-1 rounded-full">
+                        <li class="w-6 h-6 bg-black rounded-full"></li>
+                    </a>
+                    <a href="" class="hover:border-1 rounded-full">
+                        <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                    </a>
+                </ul>
+            </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+        <div
+            class=" flex flex-col relative bg-white overflow-hidden group cursor-pointer hover:-translate-y-1 duration-700  ">
+            <a href="woman.html"><img src="assste/images/model.jpg" alt="Loose Fit Tee"
+                    class="w-full object-cover rounded-[20px]  " />
+
+                <!-- Icons on Hover -->
+                <div class="absolute pt-2 pl-2  w-10 h-10 top-2 right-2  bg-white rounded-full">
+                    <i class="fa-solid fa-xmark fa-2xl"></i>
+                </div>
+                <div
+                    class="absolute flex inset-0 items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition">
+                    <ul class="flex gap-4  ">
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black "><i
+                                class=" fa-solid fa-cart-plus fa-xl    "></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-1.5 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-eye fa-xl "></i></i></li>
+                        <li class="  w-10 h-10 pt-2 pl-2 bg-white rounded-full hover:text-white hover:bg-black"><i
+                                class="fa-solid fa-repeat fa-xl "></i></li>
+                    </ul>
+            </a>
+        </div>
+
+        <!-- Product Info -->
+        <div class=" p-4">
+            <p class="text-sm text-gray-500 line-through">$150.00</p>
+            <p class="text-lg font-semibold text-red-500">$129.00</p>
+            <p class="mt-1 text-gray-800 font-medium">Loose Fit Tee</p>
+
+
+            <ul class="flex gap-2 pt-[1em]">
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#b58e68] rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-black rounded-full"></li>
+                </a>
+                <a href="" class="hover:border-1 rounded-full">
+                    <li class="w-6 h-6 bg-[#784e39] rounded-full"></li>
+                </a>
+            </ul>
+        </div>
+
+        </div>
+
+
+
+
+
+
+        </div>
+    </section>
+    <div>
+        <ul class=" flex gap-2 pt-[3em] justify-center  ">
+            <a href="">
+                <li
+                    class="w-10 h-10 bg-black p-1.5 rounded-full border-1 text-white  text-center hover:bg-white  hover:text-black hover:border-black ">
+                    1</li>
+            </a>
+            <a href="">
+                <li
+                    class="w-10 h-10 bg-white p-1.5 rounded-full border-1 text-black text-center hover:border-white hover:bg-black hover:text-white ">
+                    2</li>
+            </a>
+            <a href="">
+                <li
+                    class="w-10 h-10 bg-white p-1.5 rounded-full border-1 text-black text-center hover:border-white hover:bg-black hover:text-white ">
+                    3</li>
+            </a>
+            <a href="">
+                <li
+                    class="w-10 h-10 bg-white  rounded-full border-1 text-black text-center hover:border-white hover:bg-black  hover:text-white">
+                    <i class=" p-2.5 fa-solid fa-arrow-right hover:text-white"></i></li>
+            </a>
+        </ul>
+    </div>
+
+    <footer class=" w-full  pt-[3em]  ">
+        <div>
+            <div class=" flex flex-row justify-between border-1 border-[#e5e5e5] p-9  ">
+                <div class=" pl-[1em] ">
+                    <a href="#"><img src="assste/icons/logo.svg" alt="logo" class="logo "></a>
+                </div>
+                <div class="top-bar-left ">
+                    <ul class="icon flex gap-2 ml-11 pt-1 ">
+                        <li
+                            class="facebook rounded-full border-1 p-2 hover:bg-[#4267B2] transition delay-150 duration-300 ease-in-out rounded-full  ">
+                            <a href="">
+                                <img src="assste/icons/f1.png" alt="" class=" w-6 h-6 ">
+                            </a>
+                        </li>
+                        <li
+                            class="facebook rounded-full border-1 p-2 hover:bg-[#C13584] transition delay-150 duration-300 ease-in-out rounded-full  ">
+                            <a href="">
+                                <img src="assste/icons/ins1.png" alt="" class=" w-6 h-6 ">
+                            </a>
+                        </li>
+                        <li
+                            class="facebook  rounded-full border-1 p-2 hover:bg-[#0077B5] transition delay-150 duration-300 ease-in-out rounded-full ">
+                            <a href="">
+                                <img src="assste/icons/in1.png" alt="" class=" w-6 h-6 ">
+                            </a>
+                        </li>
+                        <li
+                            class="facebook  rounded-full border-1 p-2 hover:bg-[#e5e5e5] transition delay-150 duration-300 ease-in-out rounded-full ">
+                            <a href="">
+                                <img src="assste/icons/x1.png" alt="" class=" w-6 h-6 ">
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="flex flex-row w-[100%]">
+                <div class=" w-[33%] border-1 border-[#e5e5e5] pb-[3em]">
+                    <div>
+                        <h1 class=" font-bold text-2xl text-left pt-[2em] pl-[2em] ">Business Contact</h1>
+                    </div>
+                    <div>
+                        <ul class="flex flex-col p-4">
+                            <li class="flex gap-3 pl-[2em] pt-[1em] ">
+                                <span><img src="assste/icons/icons8-location-60.png" alt=""
+                                        class=" items-center w-7 h-7 hover:bg-[#ff6f61] cursor-pointer transition delay-150 duration-300 ease-in-out rounded-full "></span>
+                                <a href="#" class="text-left font-semibold top ">
+                                    <p class=" hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">123
+                                        Yarran st, Punchbowl, NSW 2196, <br>Australia</p>
+                                </a>
+                            </li>
+                            <li class="flex gap-3 pl-[2em] pt-[1em] ">
+                                <span><img src="assste/icons/icons8-location-60.png" alt=""
+                                        class=" items-center w-7 h-7 hover:bg-[#ff6f61] cursor-pointer transition delay-150 duration-300 ease-in-out rounded-full "></span>
+                                <a href="#" class="text-center font-semibold  ">
+                                    <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">123
+                                        Yarran
+                                        st, Punchbowl, NSW 2196, Australia</p>
+                                </a>
+                            </li>
+                            <li class="flex gap-3 pl-[2em] pt-[1em] ">
+                                <span><img src="assste/icons/icons8-location-60.png" alt=""
+                                        class=" items-center w-7 h-7 hover:bg-[#ff6f61] cursor-pointer transition delay-150 duration-300 ease-in-out rounded-full "></span>
+                                <a href="#" class="text-center font-semibold  ">
+                                    <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">123
+                                        Yarran
+                                        st, Punchbowl, NSW 2196, Australia</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <div
+                            class=" pl-[3em] font-semibold  hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                            <a href="#" class="flex gap-3  underline text-center ">Get direction
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" w-[35%] border-1 border-[#e5e5e5] pb-[3em]">
+                    <div>
+                        <h1 class=" font-bold text-2xl text-left pt-[2em] pl-[2em] ">Subscribe Newsletter</h1>
+                    </div>
+                    <div class=" pl-[3em] pt-[1.5em] text-left ">
+                        <p class=" text-[#58595B] w-[85%] font-medium">We invite you to register to read the latest
+                            news, offers and events about our company. We promise not spam your inbox.</p>
+
+                    </div>
+                    <div>
+                        <form action="" class="relative  flex flex-row pl-[3em] pt-[1.5em]">
+                            <input type="email" name="email" id="email" placeholder="Enter your email"
+                                class=" p-[1.3em] text-[#58595B] text-xl w-[80%] h-8 border-1 bg-white border-[#e5e5e5] rounded-full  hover:border-black transition delay-150 duration-700 ease-in-out ">
+                            <input type="submit" value="Su"
+                                class=" left-94 absolute w-13.5 h-13.5 bg-black text-white rounded-full cursor-pointer  hover:bg-[#ff6f61] transition delay-150 duration-700 ease-in-out ">
+                    </div>
+                </div>
+                <div class="  w-[33%] border-1 border-[#e5e5e5] pb-[3em]">
+                    <div class="flex justify-between ">
+                        <h1 class=" font-bold text-2xl text-left pt-[2em] pl-[2em] ">About Us</h1>
+                        <h1 class=" font-bold text-2xl text-left pt-[2em]  pr-[3em]  ">Resource</h1>
+                    </div>
+                    <div class="flex justify-between ">
+                        <div>
+                            <ul class="flex flex-col p-4 text-[#58595B]">
+                                <li class="flex  pl-[2em] pt-[.5em] ">
+
+                                    <a href="#" class="text-left font-semibold top ">
+                                        <p class=" hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            About Us</p>
+                                    </a>
+                                </li>
+                                <li class="flex gap-3 pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Contact Us</p>
+                                    </a>
+                                </li>
+                                <li class="flex gap-3 pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Our Store</p>
+                                    </a>
+                                </li>
+                                <li class="flex gap-3 pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Our Store</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="pr-[1em] ">
+
+
+
+                            <ul class="flex flex-col p-4 text-[#58595B]">
+                                <li class="flex  pl-[2em] pt-[.5em] ">
+
+                                    <a href="#" class="text-left font-semibold top ">
+                                        <p class=" hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Privacy Policies</p>
+                                    </a>
+                                </li>
+                                <li class="flex  pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Terms & Conditions</p>
+                                    </a>
+                                </li>
+                                <li class="flex  pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Returns & Refunds</p>
+                                    </a>
+                                </li>
+                                <li class="flex  pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            FAQ’s</p>
+                                    </a>
+                                </li>
+                                <li class="flex  pl-[2em] pt-[1em] ">
+
+                                    <a href="#" class="text-center font-semibold  ">
+                                        <p class="hover:text-[#ff6f61] transition delay-150 duration-300 ease-in-out">
+                                            Shipping</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between p-[2em] ">
+            <p class="text-dark">Copyright © 2025 by <span class="fw-medium">Vineta.</span> All Rights Reserved.</p>
+            <ul class="flex gap-3 ">
+                <li>
+                    <a href=""><img src="assste/icons/ApplePay.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/DinersClub.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/Discover.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/MasterCard.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/GooglePay.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/Mastercard-2.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/Shop.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/UnionPay.png" alt="" class=" h-8 "></a>
+                </li>
+                <li>
+                    <a href=""><img src="assste/icons/Visa.png" alt="" class=" h-8 "></a>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+    <!-- footer -->
+
+
+
+</body>
+
+</html>

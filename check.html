@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineta - Checkout</title>
+    <link rel="icon" href="assets/icons/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8f4a58',
+                        secondary: '#ba9272',
+                        accent: '#ff6f61',
+                        light: '#e5e5e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .checkout-section {
+            background: linear-gradient(135deg, #8f4a58 0%, #ba9272 100%);
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(143, 74, 88, 0.2);
+        }
+        
+        .payment-option {
+            transition: all 0.3s ease;
+        }
+        
+        .payment-option:hover {
+            transform: translateY(-2px);
+            border-color: #ff6f61;
+        }
+        
+        .btn-checkout {
+            background: linear-gradient(135deg, #8f4a58 0%, #ba9272 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-checkout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 74, 88, 0.3);
+        }
+        
+        .cart-item {
+            transition: all 0.3s ease;
+        }
+        
+        .cart-item:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body class="font-['Ubuntu'] bg-gray-50">
+    <!-- top-bar -->
+    <div class="top-bar bg-primary h-9 w-full">
+        <div class="container mx-auto flex justify-between items-center h-full px-4">
+            <div class="top-bar-left">
+                <ul class="flex gap-3">
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-facebook-f text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-instagram text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-twitter text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-snapchat text-white text-xs"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-bar-middle hidden md:flex items-center gap-5 text-white text-xs">
+                <div>
+                    <p>Free Shipping on Orders $50+</p>
+                </div>
+                <div>
+                    <p>30-Day Money Back Guarantee</p>
+                </div>
+            </div>
+            <div class="top-bar-right flex items-center gap-5 text-white text-xs">
+                <a href="#" class="flex items-center">
+                    English <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </a>
+                <a href="#" class="flex items-center">
+                    USD $ <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- top-bar -->
+    
+    <!-- header -->
+    <header class="bg-white border-b border-light">
+        <div class="container mx-auto py-5 px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="logo-header">
+                        <img src="assste/icons/logo.svg" alt="Vineta Logo" class="h-8">
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                    <div class="header-search relative">
+                        <form class="flex">
+                            <input type="search" placeholder="Search for products" 
+                                class="search-input w-full py-2 px-4 border border-light rounded-l-full focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button type="submit" class="bg-primary text-white rounded-r-full px-4 hover:bg-primary/90 transition">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5">
+                    <a href="login.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="far fa-user text-xl"></i>
+                        <span class="hidden md:block ml-2">Login</span>
+                    </a>
+                    <a href="Wishlist.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fa-solid fa-heart"></i>
+                        <span class="hidden md:block ml-2">Wishlist</span>
+                    </a>
+                    <a href="cart.html" class="flex items-center text-gray-700 hover:text-primary">
+<i class="fa-solid fa-cart-shopping"></i>
+                        <span class="hidden md:block ml-2">Cart</span>
+                    </a>
+<a href="women.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fas fa-female text-xl"></i>
+                        <span class="hidden md:block ml-2">Woman</span>
+                    </a>   
+                    
+                    <a href="singlcart.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="hidden md:block ml-2">singlcart</span>
+                    </a>
+                    <a href="check.html" class="flex items-center text-gray-700 hover:text-primary">
+<i class="fa-solid fa-circle-check"></i>                  
+      <span class="hidden md:block ml-2">Check</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <!-- banner -->
+    <section class="checkout-section">
+        <div class="py-16">
+            <div>
+                <h1 class="font-bold text-4xl text-center text-white">
+                    Check Out
+                </h1>
+            </div>
+            <div>
+                <ul class="flex justify-center gap-8 pt-4 text-white">
+                    <a href="index.html">
+                        <li class="hover:text-gray-200 transition">Home</li>
+                    </a>
+                    <li class="font-bold">Check Out</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- banner -->
+
+    <!-- Checkout Content -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Left: Checkout Form -->
+                <div class="lg:col-span-2 bg-white p-8 rounded-2xl shadow-lg">
+                    <h1 class="text-3xl font-bold mb-6 text-gray-800">Checkout</h1>
+                    
+                    <form class="space-y-6">
+                        <!-- Personal Information -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" placeholder="First Name"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" placeholder="Last Name"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+
+                        <!-- Address Information -->
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Country</label>
+                                <input type="text" placeholder="Country"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                                <input type="text" placeholder="Address"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Apartment, suite, etc (optional)</label>
+                                <input type="text" placeholder="Apartment, suite, etc"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+
+                        <!-- City, State, Zip -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                                <input type="text" placeholder="City"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                                <select class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option>Select State</option>
+                                    <option>California</option>
+                                    <option>New York</option>
+                                    <option>Texas</option>
+                                    <option>Florida</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Zip Code</label>
+                                <input type="text" placeholder="Zip Code"
+                                    class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                            <input type="tel" placeholder="Phone"
+                                class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+
+                        <!-- Contact Information Section -->
+                        <div class="border-t border-light pt-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h2 class="text-2xl font-bold text-gray-800">Contact Information</h2>
+                                <a href="login.html" class="text-primary hover:text-primary/80 transition underline">LOG IN</a>
+                            </div>
+                            <input type="email" placeholder="Email or phone number"
+                                class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+
+                        <!-- Shipping Method -->
+                        <div class="border-t border-light pt-6">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Shipping Method</h2>
+                            <div class="space-y-3">
+                                <label class="payment-option block border-2 border-light rounded-xl p-4 cursor-pointer hover:border-accent transition">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="radio" name="shipping" class="text-accent mr-3" checked>
+                                            <span class="font-medium">Free Shipping</span>
+                                            <span class="text-gray-500 ml-2">(Estimate in 7-10 days)</span>
+                                        </div>
+                                        <span class="font-bold text-gray-700">$0.00</span>
+                                    </div>
+                                </label>
+                                <label class="payment-option block border-2 border-light rounded-xl p-4 cursor-pointer hover:border-accent transition">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input type="radio" name="shipping" class="text-accent mr-3">
+                                            <span class="font-medium">Express Shipping</span>
+                                            <span class="text-gray-500 ml-2">(Estimate in 2-3 days)</span>
+                                        </div>
+                                        <span class="font-bold text-gray-700">$15.00</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="border-t border-light pt-6">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Payment</h2>
+                            <p class="text-gray-600 mb-4">All transactions are secure and encrypted.</p>
+                            
+                            <div class="space-y-4">
+                                <!-- Bank Transfer -->
+                                <label class="payment-option block border-2 border-light rounded-xl p-4 cursor-pointer hover:border-accent transition">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="payment" class="text-accent mr-3">
+                                        <span class="font-medium">Direct Bank Transfer</span>
+                                    </div>
+                                    <p class="text-gray-600 text-sm mt-2 ml-6">
+                                        Make your payment directly into our bank account. Please use your Order ID as the payment reference.
+                                    </p>
+                                </label>
+
+                                <!-- Cash on Delivery -->
+                                <label class="payment-option block border-2 border-light rounded-xl p-4 cursor-pointer hover:border-accent transition">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="payment" class="text-accent mr-3">
+                                        <span class="font-medium">Cash on Delivery</span>
+                                    </div>
+                                </label>
+
+                                <!-- Credit Card -->
+                                <label class="payment-option block border-2 border-light rounded-xl p-4 cursor-pointer hover:border-accent transition">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="payment" class="text-accent mr-3" checked>
+                                        <span class="font-medium">Credit Card</span>
+                                    </div>
+                                    <div class="mt-3 space-y-3 ml-6">
+                                        <input type="text" placeholder="Card number"
+                                            class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <div class="grid md:grid-cols-2 gap-3">
+                                            <input type="text" placeholder="Expiration date (MM/YY)"
+                                                class="form-input px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                                            <input type="text" placeholder="Security code"
+                                                class="form-input px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                                        </div>
+                                        <input type="text" placeholder="Name on card"
+                                            class="form-input w-full px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <div class="flex items-center">
+                                            <input type="checkbox" class="text-accent mr-2">
+                                            <span class="text-gray-600">Use shipping address as billing address</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <!-- PayPal -->
+                                <label class="payment-option block border-2 border-light rounded-xl p-4 cursor-pointer hover:border-accent transition">
+                                    <div class="flex items-center">
+                                        <input type="radio" name="payment" class="text-accent mr-3">
+                                        <span class="font-medium">PayPal</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Privacy Policy -->
+                        <div class="border-t border-light pt-6">
+                            <p class="text-gray-600 text-sm">
+                                Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right: Order Summary -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg h-fit sticky top-6">
+                    <h3 class="text-xl font-bold mb-6 text-gray-800">Order Summary</h3>
+                    
+                    <!-- Cart Items -->
+                    <div class="space-y-4 mb-6">
+                        <div class="flex gap-4 cart-item">
+                            <img src="assste/images/model.jpg" 
+                                 alt="Loose Fit Tee" class="w-20 h-24 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-800">Loose Fit Tee</h4>
+                                <p class="text-gray-600 text-sm">White / L</p>
+                                <p class="font-bold text-gray-800 mt-1">$120.00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 cart-item">
+                            <img src="assste/images/model.jpg" 
+                                 alt="Bow-Tie T-Shirt" class="w-20 h-24 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-800">Bow-Tie T-Shirt</h4>
+                                <p class="text-gray-600 text-sm">Black / L</p>
+                                <p class="font-bold text-gray-800 mt-1">$120.00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 cart-item">
+                            <img src="assste/images/model.jpg" 
+                                 alt="Summer Dress" class="w-20 h-24 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-800">Summer Dress</h4>
+                                <p class="text-gray-600 text-sm">White / L</p>
+                                <p class="font-bold text-gray-800 mt-1">$130.00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Breakdown -->
+                    <div class="border-t border-b border-light py-4 space-y-3">
+                        <div class="flex justify-between text-gray-700">
+                            <span>Subtotal:</span>
+                            <span class="font-bold">$370.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>Discount:</span>
+                            <span class="font-bold text-green-600">-$48.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>Shipping:</span>
+                            <span class="font-bold">$10.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-700">
+                            <span>Tax:</span>
+                            <span class="font-bold">$48.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Total -->
+                    <div class="flex justify-between items-center pt-4 mb-6">
+                        <span class="text-2xl font-bold text-gray-800">Total:</span>
+                        <span class="text-2xl font-bold text-primary">$380.00</span>
+                    </div>
+
+                    <!-- Place Order Button -->
+                    <button class="btn-checkout w-full py-4 text-white font-bold rounded-xl text-lg hover:shadow-lg transition">
+                        Place Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-light mt-12">
+        <div class="container mx-auto px-4">
+            <!-- Footer Content -->
+            <div class="grid md:grid-cols-3 gap-8 py-12">
+                <!-- Business Contact -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Business Contact</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            <div>
+                                <p class="font-medium">123 Yarran st, Punchbowl</p>
+                                <p class="text-gray-600">NSW 2196, Australia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-primary text-xl"></i>
+                            <div>
+                                <p class="font-medium">+1 234 567 890</p>
+                                <p class="text-gray-600">Mon-Fri 9am-6pm</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary text-xl"></i>
+                            <div>
+                                <p class="font-medium">info@vineta.com</p>
+                                <p class="text-gray-600">24/7 Support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-primary font-semibold mt-4 hover:text-primary/80 transition">
+                        <i class="fas fa-directions"></i>
+                        Get Directions
+                    </a>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Subscribe Newsletter</h3>
+                    <p class="text-gray-600 mb-6">
+                        We invite you to register to read the latest news, offers and events about our company. We promise not to spam your inbox.
+                    </p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Enter your email" 
+                            class="flex-1 px-4 py-3 border border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="bg-primary text-white px-6 rounded-xl hover:bg-primary/90 transition">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">About Us</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li><a href="#" class="hover:text-primary transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Contact Us</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Our Store</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Resource</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li><a href="#" class="hover:text-primary transition">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Terms & Conditions</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Returns & Refunds</a></li>
+                            <li><a href="#" class="hover:text-primary transition">FAQ's</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Shipping</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-light py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-600">
+                        Copyright © 2024 by Abdullah Sayed <span class="font-semibold">Vineta.</span> All Rights Reserved.
+                    </p>
+                    <div class="flex gap-3">
+                        <img src="assste/icons/ApplePay.png" alt="Apple Pay" class="h-8">
+                    <img src="assste/icons/DinersClub.png" alt="Diners Club" class="h-8">
+                    <img src="assste/icons/Discover.png" alt="Discover" class="h-8">
+                    <img src="assste/icons/MasterCard.png" alt="MasterCard" class="h-8">
+                    <img src="assste/icons/GooglePay.png" alt="Google Pay" class="h-8">
+                    <img src="assste/icons/Visa.png" alt="Visa" class="h-8">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment method selection
+            const paymentOptions = document.querySelectorAll('input[name="payment"]');
+            paymentOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    document.querySelectorAll('.payment-option').forEach(div => {
+                        div.classList.remove('border-accent', 'bg-accent/5');
+                    });
+                    if (this.checked) {
+                        this.closest('.payment-option').classList.add('border-accent', 'bg-accent/5');
+                    }
+                });
+            });
+
+            // Initialize first payment option as selected
+            const firstPayment = document.querySelector('input[name="payment"]:checked');
+            if (firstPayment) {
+                firstPayment.closest('.payment-option').classList.add('border-accent', 'bg-accent/5');
+            }
+
+            // Place order button
+            const placeOrderBtn = document.querySelector('.btn-checkout');
+            placeOrderBtn.addEventListener('click', function() {
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Order placed successfully!');
+                    window.location.href = 'order-confirmation.html';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

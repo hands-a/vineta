@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineta - Multipurpose eCommerce-Home</title>
+    <link rel="icon" href="assste/icons/lo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8f4a58',
+                        secondary: '#ba9272',
+                        accent: '#ff6f61',
+                        light: '#e5e5e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-actions {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .category-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        img {
+            loading: lazy;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body class="font-['Ubuntu'] bg-gray-50">
+    <!-- top-bar -->
+    <div class="top-bar bg-primary h-9 w-full">
+        <div class="container mx-auto flex justify-between items-center h-full px-4">
+            <div class="top-bar-left">
+                <ul class="flex gap-3">
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-facebook-f text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-instagram text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-twitter text-white text-xs"></i>
+                        </a>
+                    </li>
+                    <li class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center"> 
+                        <a href="#">
+                            <i class="fab fa-snapchat text-white text-xs"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="top-bar-middle hidden md:flex items-center gap-5 text-white text-xs">
+                <div>
+                    <p>Free Shipping on Orders $50+</p>
+                </div>
+                <div>
+                    <p>30-Day Money Back Guarantee</p>
+                </div>
+            </div>
+            <div class="top-bar-right flex items-center gap-5 text-white text-xs">
+                <a href="#" class="flex items-center">
+                    English <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </a>
+                <a href="#" class="flex items-center">
+                    USD $ <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- top-bar -->
+    
+    <!-- header -->
+    <header class="bg-white border-b border-light">
+        <div class="container mx-auto py-5 px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="logo-header">
+                        <img src="assste/icons/logo.svg" alt="Vineta Logo" class="h-8">
+                    </a>
+                </div>
+                <div class="w-full md:w-1/3 mb-4 md:mb-0">
+                    <div class="header-search relative">
+                        <form class="flex">
+                            <input type="search" placeholder="Search for products" 
+                                class="search-input w-full py-2 px-4 border border-light rounded-l-full focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button type="submit" class="bg-primary text-white rounded-r-full px-4 hover:bg-primary/90 transition">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5">
+                    <a href="login.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="far fa-user text-xl"></i>
+                        <span class="hidden md:block ml-2">Login</span>
+                    </a>
+                    <a href="Wishlist.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fa-solid fa-heart"></i>
+                        <span class="hidden md:block ml-2">Wishlist</span>
+                    </a>
+                    <a href="cart.html" class="flex items-center text-gray-700 hover:text-primary">
+<i class="fa-solid fa-cart-shopping"></i>
+                        <span class="hidden md:block ml-2">Cart</span>
+                    </a>
+<a href="woman.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fas fa-female text-xl"></i>
+                        <span class="hidden md:block ml-2">Woman</span>
+                    </a>   
+                    
+                    <a href="singlcart.html" class="flex items-center text-gray-700 hover:text-primary">
+                        <i class="fas fa-shopping-bag text-xl"></i>
+                        <span class="hidden md:block ml-2">singlcart</span>
+                    </a>
+                    <a href="check.html" class="flex items-center text-gray-700 hover:text-primary">
+<i class="fa-solid fa-circle-check"></i>                  
+      <span class="hidden md:block ml-2">Check</span>
+                    </a>
+                 </div>
+            </div>
+        </div>
+    </header>
+    <!-- header -->
+
+    <!-- navbar -->
+    <nav class="bg-white border-b border-light">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap justify-center py-4 gap-6 text-sm font-medium">
+                <li class="relative group">
+                    <a href="index.html" class="flex items-center hover:text-primary">
+                        Home <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="#" class="block py-2 hover:text-primary">Home Furniture</a>
+                        <a href="#" class="block py-2 hover:text-primary">Home Decor</a>
+                        <a href="#" class="block py-2 hover:text-primary">Home Lighting</a>
+                    </div>
+                </li>
+                <li class="relative group">
+                    <a href="woman.html" class="flex items-center hover:text-primary">
+                        Shop <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-4 z-10 w-48">
+                        <a href="#" class="block py-2 hover:text-primary">Living Room</a>
+                        <a href="#" class="block py-2 hover:text-primary">Bedroom</a>
+                        <a href="#" class="block py-2 hover:text-primary">Kitchen</a>
+                        <a href="#" class="block py-2 hover:text-primary">Outdoor</a>
+                    </div>
+                </li>
+                <li class="relative group">
+                    <a href="Wishlist.html" class="flex items-center hover:text-primary">
+                        Products <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                </li>
+                <li class="relative group">
+                    <a href="check.html" class="flex items-center hover:text-primary">
+                        Pages <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                </li>
+                <li class="relative group">
+                    <a href="cart.html" class="flex items-center hover:text-primary">
+                        Blog <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-primary font-bold">Buy Theme!</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar -->
+
+    <!-- banner -->
+    <section class="flex flex-col md:flex-row h-auto md:h-[90vh]">
+        <!-- Left: Text Content -->
+        <div class="bg-secondary flex-1 flex flex-col justify-center items-center text-white px-8 py-12 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-serif">Every Room Elevated</h1>
+            <p class="text-lg mb-8">Bring elegance and comfort to every room.</p>
+            <a href="#">
+                <button class="bg-white text-secondary px-6 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition">
+                    Shop Collection
+                </button>
+            </a>
+
+            <!-- Slider indicators -->
+            <div class="mt-12 flex gap-2 items-center">
+                <span class="w-3 h-3 bg-white rounded-full"></span>
+                <span class="w-3 h-3 bg-white/50 rounded-full"></span>
+                <span class="w-3 h-3 bg-white/50 rounded-full"></span>
+            </div>
+        </div>
+
+        <!-- Right: Image Section -->
+        <div class="flex-1 relative">
+            <img src="assste/images/slider-furniture-3.jpg" alt="Luxury Living Room"
+                class="w-full h-full object-cover" />
+        </div>
+    </section>
+    <!-- banner -->
+
+    <!-- services -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="services-list bg-white border border-light rounded-2xl p-6 text-center hover-effect">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-primary text-2xl"></i>
+                    </div>
+                    <a href="#">
+                        <h2 class="font-bold text-xl pt-4 pb-2">Free Shipping</h2>
+                        <p class="text-gray-600">Enjoy free shipping on all orders over $50</p>
+                    </a>
+                </div>
+
+                <div class="services-list bg-white border border-light rounded-2xl p-6 text-center hover-effect">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-undo-alt text-primary text-2xl"></i>
+                    </div>
+                    <a href="#">
+                        <h2 class="font-bold text-xl pt-4 pb-2">Free Returns</h2>
+                        <p class="text-gray-600">Within 30 days for a full refund</p>
+                    </a>
+                </div>
+
+                <div class="services-list bg-white border border-light rounded-2xl p-6 text-center hover-effect">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-primary text-2xl"></i>
+                    </div>
+                    <a href="#">
+                        <h2 class="font-bold text-xl pt-4 pb-2">Support 24/7</h2>
+                        <p class="text-gray-600">Outstanding premium support</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services -->
+
+    <!-- Top Picks -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="font-bold text-3xl md:text-4xl mb-2">Top Picks You'll Love</h1>
+                <p class="text-gray-600">Explore our most popular pieces that customers can't get enough of</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="relative overflow-hidden">
+                        <span class="discount-badge"></span>
+                        <a href="#">
+                            <img src="assste/images/1.jpg" alt="Nook Nightstand" class="w-full h-80 object-cover">
+                        </a>
+                        <div class="product-actions absolute top-4 right-4">
+                            <ul class="flex flex-col gap-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <a href="#" class="font-bold text-lg hover:text-accent">Nook Nightstand</a>
+                        <div class="flex items-center pt-2">
+                            <span class="text-accent font-bold text-lg">$150.00</span>
+                            <span class="text-gray-400 font-bold text-lg line-through ml-2">$170.00</span>
+                        </div>
+                        <div class="flex gap-2 pt-4">
+                            <span class="w-5 h-5 bg-[#b58e68] rounded-full"></span>
+                            <span class="w-5 h-5 bg-black rounded-full"></span>
+                            <span class="w-5 h-5 bg-[#784e39] rounded-full"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="relative overflow-hidden">
+                        <span class="discount-badge bg-[#a474ff]"></span>
+                        <a href="#">
+                            <img src="assste/images/2.jpg" alt="Talco Coffee Table" class="w-full h-80 object-cover">
+                        </a>
+                        <div class="product-actions absolute top-4 right-4">
+                            <ul class="flex flex-col gap-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <a href="#" class="font-bold text-lg hover:text-accent">Talco Coffee Table</a>
+                        <div class="flex items-center pt-2">
+                            <span class="text-accent font-bold text-lg">$350.00</span>
+                        </div>
+                        <div class="flex gap-2 pt-4">
+                            <span class="w-5 h-5 bg-[#4597a4] rounded-full"></span>
+                            <span class="w-5 h-5 bg-[#c3466d] rounded-full"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="relative overflow-hidden">
+                        <a href="#">
+                            <img src="assste/images/3.jpg" alt="Porcini Coffee Table" class="w-full h-80 object-cover">
+                        </a>
+                        <div class="product-actions absolute top-4 right-4">
+                            <ul class="flex flex-col gap-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <a href="#" class="font-bold text-lg hover:text-accent">Porcini Coffee Table</a>
+                        <div class="flex items-center pt-2">
+                            <span class="text-accent font-bold text-lg">$120.00</span>
+                        </div>
+                        <div class="flex gap-2 pt-4">
+                            <span class="w-5 h-5 bg-[#e3d7c6] rounded-full"></span>
+                            <span class="w-5 h-5 bg-[#b58e68] rounded-full"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-2xl overflow-hidden hover:shadow-lg transition">
+                    <div class="relative overflow-hidden">
+                        <span class="discount-badge"></span>
+                        <a href="#">
+                            <img src="assste/images/4.jpg" alt="Porcini Coffee Table" class="w-full h-80 object-cover">
+                        </a>
+                        <div class="product-actions absolute top-4 right-4">
+                            <ul class="flex flex-col gap-2">
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <a href="#" class="font-bold text-lg hover:text-accent">Porcini Coffee Table</a>
+                        <div class="flex items-center pt-2">
+                            <span class="text-accent font-bold text-lg">$120.00</span>
+                            <span class="text-gray-400 font-bold text-lg line-through ml-2">$140.00</span>
+                        </div>
+                        <div class="flex gap-2 pt-4">
+                            <span class="w-5 h-5 bg-[#784e39] rounded-full"></span>
+                            <span class="w-5 h-5 bg-[#add8e6] rounded-full"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Top Picks -->
+
+    <!-- Categories -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="category-card lg:col-span-2 rounded-3xl overflow-hidden relative group">
+                    <img src="assste/images/c1.jpg" alt="Chairs" class="w-full h-96 object-cover">
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                        <button class="bg-white text-black px-8 py-3 rounded-full text-xl font-semibold hover:bg-gray-100 transition">
+                            Chairs
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="category-card rounded-2xl overflow-hidden relative group">
+                        <img src="assste/images/c2.jpg" alt="Tables" class="w-full h-60 object-cover">
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                            <button class="bg-white text-black px-6 py-2 rounded-full text-lg font-semibold hover:bg-gray-100 transition">
+                                Tables
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card rounded-2xl overflow-hidden relative group">
+                        <img src="assste/images/c3.jpg" alt="Decorations" class="w-full h-60 object-cover">
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                            <button class="bg-white text-black px-6 py-2 rounded-full text-lg font-semibold hover:bg-gray-100 transition">
+                                Decorations
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Categories -->
+
+    <!-- Curated Collection -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="font-bold text-3xl md:text-4xl mb-2">Curated Just for You</h1>
+                <p class="text-gray-600">Discover a selection of timeless designs and trends that match your style</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="text-center">
+                    <div class="rounded-full overflow-hidden mb-4">
+                        <img src="assste/images/r1.jpg" alt="Lighting" class="w-full h-40 object-cover">
+                    </div>
+                    <p class="font-bold text-lg">Lighting</p>
+                </div>
+                <div class="text-center">
+                    <div class="rounded-full overflow-hidden mb-4">
+                        <img src="assste/images/r2.jpg" alt="Rugs" class="w-full h-40 object-cover">
+                    </div>
+                    <p class="font-bold text-lg">Rugs</p>
+                </div>
+                <div class="text-center">
+                    <div class="rounded-full overflow-hidden mb-4">
+                        <img src="assste/images/r3.jpg" alt="Decor" class="w-full h-40 object-cover">
+                    </div>
+                    <p class="font-bold text-lg">Decor</p>
+                </div>
+                <div class="text-center">
+                    <div class="rounded-full overflow-hidden mb-4">
+                        <img src="assste/images/r4.jpg" alt="Pillows" class="w-full h-40 object-cover">
+                    </div>
+                    <p class="font-bold text-lg">Pillows</p>
+                </div>
+                <div class="text-center">
+                    <div class="rounded-full overflow-hidden mb-4">
+                        <img src="assste/images/r5.jpg" alt="Wall Art" class="w-full h-40 object-cover">
+                    </div>
+                    <p class="font-bold text-lg">Wall Art</p>
+                </div>
+                <div class="text-center">
+                    <div class="rounded-full overflow-hidden mb-4">
+                        <img src="assste/images/r1.jpg" alt="Mirrors" class="w-full h-40 object-cover">
+                    </div>
+                    <p class="font-bold text-lg">Mirrors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Curated Collection -->
+
+    <!-- Promotional Cards -->
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="assste/images/s1.jpg" alt="Limited-Time Offers" class="w-full h-80 object-cover">
+                    <div class="bg-white p-6 text-center">
+                        <h3 class="font-bold text-2xl mb-2 hover:text-accent cursor-pointer">Limited-Time Offers</h3>
+                        <p class="text-gray-600 mb-4">Upgrade your home with exclusive deals</p>
+                        <button class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition">
+                            Shop Now
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="assste/images/s2.jpg" alt="New Arrivals" class="w-full h-80 object-cover">
+                    <div class="bg-white p-6 text-center">
+                        <h3 class="font-bold text-2xl mb-2 hover:text-accent cursor-pointer">New Arrivals</h3>
+                        <p class="text-gray-600 mb-4">Discover our latest furniture collection</p>
+                        <button class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition">
+                            Shop Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Promotional Cards -->
+
+    <!-- Testimonials -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row rounded-3xl overflow-hidden shadow-xl">
+                <div class="md:w-2/5">
+                    <img src="assste/images/slider-furniture-3.jpg" alt="Testimonial" class="w-full h-full object-cover">
+                </div>
+                <div class="md:w-3/5 bg-secondary text-white p-8 md:p-12">
+                    <div class="text-4xl mb-4">❝</div>
+                    <div class="flex mb-4">
+                        <span class="text-yellow-300 text-lg">★★★★★</span>
+                    </div>
+                    <h3 class="uppercase font-semibold text-sm tracking-wider mb-4">Elegance and Comfort Combined</h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        I just got a coffee table from this store, and it's absolutely perfect for my space.
+                        The design is stylish, the quality is top-notch, and it adds a cozy touch to my living room.
+                        Definitely worth it!
+                    </p>
+                    <p class="font-bold">Vineta P.</p>
+                    <p class="text-sm">Purchase item: <span class="font-semibold">Round Wooden Table</span></p>
+                    <div class="mt-8 flex space-x-4">
+                        <button class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-secondary transition">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-secondary transition">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+
+    <!-- Footer -->
+    <footer class="bg-white pt-12 pb-6 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center border-b border-light pb-6 mb-8">
+                <a href="#">
+                    <img src="assste/icons/logo.svg" alt="Vineta Logo" class="h-8">
+                </a>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 border border-light rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Business Contact</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <p class="text-gray-600">123 Yarran st, Punchbowl, NSW 2196, Australia</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-primary mt-1 mr-3"></i>
+                            <p class="text-gray-600">+1 234 567 8900</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-primary mt-1 mr-3"></i>
+                            <p class="text-gray-600">info@vineta.com</p>
+                        </div>
+                        <a href="#" class="text-primary font-semibold flex items-center hover:underline">
+                            Get direction <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Subscribe Newsletter</h3>
+                    <p class="text-gray-600 mb-4">We invite you to register to read the latest news, offers and events about our company.</p>
+                    <form class="relative">
+                        <input type="email" placeholder="Enter your email" class="w-full py-3 px-4 border border-light rounded-full focus:outline-none focus:ring-2 focus:ring-primary">
+                        <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary/90 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">About Us</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">About Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Our Store</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Careers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Privacy Policies</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Returns & Refunds</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">FAQ's</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-light">
+                <p class="text-gray-600 mb-4 md:mb-0">Copyright © 2025 by Abdullah Sayed <span class="font-medium">Vineta.</span> All Rights Reserved.</p>
+                <div class="flex flex-wrap gap-2">
+                    <img src="assste/icons/ApplePay.png" alt="Apple Pay" class="h-8">
+                    <img src="assste/icons/DinersClub.png" alt="Diners Club" class="h-8">
+                    <img src="assste/icons/Discover.png" alt="Discover" class="h-8">
+                    <img src="assste/icons/MasterCard.png" alt="MasterCard" class="h-8">
+                    <img src="assste/icons/GooglePay.png" alt="Google Pay" class="h-8">
+                    <img src="assste/icons/Visa.png" alt="Visa" class="h-8">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer -->
+
+    <script>
+        // Simple JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle would be added here
+            console.log('Vineta website loaded successfully!');
+            
+            // Add animation class to elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.product-card, .services-list, .category-card').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
